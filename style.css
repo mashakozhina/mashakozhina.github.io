@@ -1,0 +1,177 @@
+/* ── FONTS ── */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap');
+
+/* ── TOKENS ── */
+:root {
+  --white:      #FFFFFF;
+  --off-white:  #F9F6F2;
+  --light-bg:   #F3EEE8;
+  --rose:       #C4849A;
+  --rose-dark:  #A86A80;
+  --rose-pale:  #F5E8EE;
+  --text:       #1A1410;
+  --text-mid:   #4A3F38;
+  --text-light: #8A7870;
+  --border:     rgba(26,20,16,0.1);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Jost', sans-serif;
+  background: var(--white);
+  color: var(--text);
+  overflow-x: hidden;
+  font-weight: 300;
+}
+
+/* ── FLOATING DOGS ── */
+.dog {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9;
+  font-size: 1.6rem;
+  animation: dogbob ease-in-out infinite;
+  opacity: 0.45;
+  user-select: none;
+}
+
+@keyframes dogbob {
+  0%,100% { transform: translateY(0) rotate(-5deg); }
+  50%      { transform: translateY(-12px) rotate(5deg); }
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: 70px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 3rem;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo img { height: 38px; display: block; }
+
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+
+.nav-links a {
+  font-size: 0.75rem; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--text-mid); text-decoration: none;
+  transition: color 0.2s;
+  position: relative;
+}
+
+.nav-links a:hover,
+.nav-links a.active { color: var(--rose); }
+
+.nav-links a.active::after {
+  content: '';
+  position: absolute; bottom: -4px; left: 0; right: 0;
+  height: 1.5px; background: var(--rose);
+}
+
+/* ── BUTTONS ── */
+.btn {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  text-decoration: none; padding: 0.8rem 1.8rem;
+  border-radius: 2px; transition: all 0.22s;
+  display: inline-block; cursor: pointer;
+}
+
+.btn-solid { background: var(--text); color: var(--white); }
+.btn-solid:hover { background: var(--rose); }
+
+.btn-outline { background: transparent; color: var(--text); border: 1px solid var(--text); }
+.btn-outline:hover { background: var(--text); color: var(--white); }
+
+.btn-white { background: white; color: var(--text); }
+.btn-white:hover { background: var(--rose); color: white; }
+
+/* ── DIVIDER ── */
+hr { border: none; border-top: 1px solid var(--border); }
+
+/* ── SECTION ── */
+.section-inner {
+  max-width: 1180px; margin: 0 auto;
+  padding: 5.5rem 3rem;
+}
+
+.section-label {
+  font-size: 0.68rem; font-weight: 500;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--rose); margin-bottom: 0.6rem;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 300; line-height: 1.18;
+  color: var(--text); margin-bottom: 3rem;
+  letter-spacing: -0.01em;
+}
+
+.section-title em { font-style: italic; color: var(--rose); }
+
+/* ── BARCELONA FOOTER BLOCK ── */
+.barcelona-section {
+  position: relative; overflow: hidden; height: 340px;
+}
+
+.barcelona-img {
+  width: 100%; height: 100%; object-fit: cover;
+  display: block; filter: brightness(0.72);
+}
+
+.barcelona-overlay {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 1.2rem; text-align: center; padding: 2rem;
+}
+
+.barcelona-location {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem; font-weight: 300; font-style: italic;
+  color: white;
+}
+
+.barcelona-msg {
+  font-size: 0.85rem; color: rgba(255,255,255,0.85);
+  max-width: 420px; line-height: 1.75;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--text); color: rgba(249,246,242,0.5);
+  padding: 1.5rem 3rem;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 0.75rem; letter-spacing: 0.04em;
+}
+
+footer a { color: rgba(249,246,242,0.5); text-decoration: none; }
+footer a:hover { color: var(--rose); }
+
+/* ── SCROLL REVEAL ── */
+.reveal {
+  opacity: 0; transform: translateY(18px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { padding: 0 1.5rem; }
+  .nav-links { gap: 1.5rem; }
+  .section-inner { padding: 4rem 1.75rem; }
+  footer { flex-direction: column; gap: 0.4rem; text-align: center; padding: 1.5rem; }
+}
+
+@media (max-width: 580px) {
+  .nav-links { display: none; }
+}

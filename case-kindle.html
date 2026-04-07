@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paper vs. Pixels — Masha Kozhyna</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .page-top { padding-top: 70px; }
+    .case-banner { width: 100%; height: 320px; object-fit: cover; object-position: center 40%; display: block; }
+    .case-inner { max-width: 860px; margin: 0 auto; padding: 4rem 3rem 7rem; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); text-decoration: none; margin-bottom: 2.5rem; transition: color 0.2s; }
+    .back-link:hover { color: var(--rose); }
+    .case-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3.4rem); font-weight: 300; line-height: 1.15; letter-spacing: -0.01em; color: var(--text); margin-bottom: 0.5rem; }
+    .case-title em { font-style: italic; color: var(--rose); }
+    .case-meta { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; padding: 1.75rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 3.5rem; }
+    .meta-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--rose); margin-bottom: 0.4rem; }
+    .meta-value { font-size: 0.88rem; line-height: 1.55; color: var(--text-mid); }
+    .overview-box { background: var(--off-white); border-left: 3px solid var(--rose); padding: 1.75rem 2rem; margin-bottom: 3.5rem; border-radius: 0 4px 4px 0; }
+    .overview-box p { font-size: 0.95rem; line-height: 1.85; color: var(--text-mid); margin-bottom: 0.75rem; }
+    .overview-box p:last-child { margin-bottom: 0; }
+    .outcomes { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem; }
+    .outcome-pill { background: var(--rose-pale); color: var(--rose-dark); font-size: 1rem; font-weight: 600; padding: 0.5rem 1.1rem; border-radius: 50px; font-style: italic; font-family: 'Cormorant Garamond', serif; }
+    .cs-section { margin-bottom: 3rem; }
+    .cs-section-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rose); margin-bottom: 0.5rem; }
+    .cs-section h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 600; line-height: 1.25; color: var(--text); margin-bottom: 1.2rem; }
+    .cs-section p { font-size: 0.93rem; line-height: 1.88; color: var(--text-mid); margin-bottom: 1rem; }
+    .cs-section ul, .cs-section ol { padding-left: 1.2rem; margin-bottom: 1rem; }
+    .cs-section ul li, .cs-section ol li { font-size: 0.93rem; line-height: 1.8; color: var(--text-mid); margin-bottom: 0.4rem; }
+    .cs-quote { border-left: 2px solid var(--rose); padding: 0.5rem 0 0.5rem 1.4rem; margin: 1.8rem 0; }
+    .cs-quote p { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.1rem; line-height: 1.65; color: var(--text); margin-bottom: 0.3rem; }
+    .cs-quote cite { font-style: normal; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-light); font-weight: 500; }
+    .cs-divider { border: none; border-top: 1px solid var(--border); margin: 3rem 0; }
+    .finding-cards { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1.2rem; }
+    .finding-card { border: 1px solid var(--border); border-radius: 4px; padding: 1.5rem 1.75rem; border-left: 3px solid var(--rose); }
+    .finding-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; color: var(--text); margin-bottom: 0.5rem; }
+    .finding-card p { font-size: 0.9rem; line-height: 1.78; color: var(--text-mid); margin-bottom: 0.6rem; }
+    .finding-card .rec { font-size: 0.82rem; font-weight: 500; color: var(--rose); font-style: italic; }
+    .result-stats { display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 1.2rem; }
+    .stat { flex: 1; min-width: 160px; padding: 1.4rem; background: var(--off-white); border-radius: 4px; text-align: center; }
+    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 600; color: var(--rose); display: block; margin-bottom: 0.3rem; }
+    .stat-desc { font-size: 0.82rem; color: var(--text-mid); line-height: 1.5; }
+    .cs-img { width: 100%; display: block; border-radius: 4px; margin: 1.5rem 0; }
+    .case-nav { display: flex; justify-content: space-between; align-items: center; padding: 2rem 0; border-top: 1px solid var(--border); margin-top: 1rem; flex-wrap: wrap; gap: 1rem; }
+    .case-nav a { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-mid); text-decoration: none; transition: color 0.2s; }
+    .case-nav a:hover { color: var(--rose); }
+    .privacy-note { font-size: 0.8rem; font-style: italic; color: var(--text-light); padding: 0.75rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
+    .hypothesis-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-top: 1rem; }
+    .hypo-card { background: var(--off-white); border-radius: 4px; padding: 1.2rem 1.4rem; }
+    .hypo-card .label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rose); margin-bottom: 0.4rem; }
+    .hypo-card p { font-size: 0.85rem; line-height: 1.65; color: var(--text-mid); }
+    @media (max-width: 700px) {
+      .case-inner { padding: 3rem 1.75rem 5rem; }
+      .case-meta { grid-template-columns: 1fr 1fr; }
+      .result-stats { flex-direction: column; }
+      .hypothesis-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <span class="dog" style="left:2%;  top:35%; animation-duration:6.5s; animation-delay:0.2s;">🐶</span>
+  <span class="dog" style="left:94%; top:55%; animation-duration:7s;   animation-delay:2s; font-size:1.3rem;">🐾</span>
+
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="https://images.squarespace-cdn.com/content/v1/646b25096908bb4e95982b47/ed043d2c-864b-4f8b-9e3c-bb0605d18093/M.png?format=1500w" alt="Masha Kozhyna">
+    </a>
+    <ul class="nav-links">
+      <li><a href="my-work.html" class="active">My Work</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="cv.html">CV</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-top">
+    <img class="case-banner"
+      src="https://images.squarespace-cdn.com/content/v1/646b25096908bb4e95982b47/d9775dbb-f2de-4fbd-a9e1-96635bd300fc/34ba25c1d53acd8f8133afac73b50cae.jpg"
+      alt="">
+
+    <div class="case-inner">
+      <a href="my-work.html" class="back-link">← Back to My Work</a>
+
+      <img class="cs-img"
+        src="https://images.squarespace-cdn.com/content/v1/646b25096908bb4e95982b47/95d45e0c-dfd3-4ea6-b9be-263361e11f41/Make_flow_detailed_for_badge_bb4bcc64b4.jpeg"
+        alt="Paper vs Pixels">
+
+      <h1 class="case-title">Paper vs. Pixels: <em>A Strategic UX Research Study on Unifying the Fragmented Reading Ecosystem</em></h1>
+      <p style="font-size:0.88rem; color:var(--rose); font-weight:500; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:2rem;">Amazon Kindle</p>
+
+      <div class="case-meta reveal">
+        <div class="meta-item">
+          <div class="meta-label">My Role</div>
+          <div class="meta-value">User Researcher (solo)</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Methodology</div>
+          <div class="meta-value">Academic Research · Interviews · Diary Study · Contextual Inquiry</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Participants</div>
+          <div class="meta-value">N=15 hybrid readers across 4 countries</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Timeframe</div>
+          <div class="meta-value">8 weeks</div>
+        </div>
+      </div>
+
+      <div class="privacy-note">While Amazon Kindle was used as the primary case study, this research was conducted independently to demonstrate strategic UX thinking and mixed-methods research capabilities.</div>
+
+      <div class="overview-box reveal">
+        <p>A massive segment of readers are <strong>"hybrid"</strong> — consuming both print and digital formats. However, the Kindle ecosystem treats these formats as mutually exclusive, forcing users to manually fragment their reading identities, collections, and progress tracking.</p>
+        <p>Through rigorous mixed-methods research grounded in academic behavioural analysis, I discovered that readers use physical books as tangible "trophies" of their identity — a feeling of true ownership digital files fail to provide.</p>
+        <div class="outcomes">
+          <span class="outcome-pill">80% concept validation</span>
+          <span class="outcome-pill">Increased Daily Active Users</span>
+          <span class="outcome-pill">Eliminated purchase friction</span>
+        </div>
+      </div>
+
+      <hr class="cs-divider">
+
+      <div class="cs-section reveal">
+        <div class="cs-section-label">The Problem</div>
+        <h2>Hybrid readers experience a fragmented and frustrating user journey.</h2>
+        <p>Because the Kindle ecosystem is entirely blind to a user's physical book consumption, this "data deficit" breaks the digital experience in three key ways:</p>
+        <ul>
+          <li><strong>Disjointed Reading Identity:</strong> Physical books cannot sync with digital trackers, denying users a unified "shelf."</li>
+          <li><strong>Accidental Duplication:</strong> Without a centralised inventory, users frequently accidentally purchase digital copies of books they already own in print.</li>
+          <li><strong>Broken Recommendation Engine:</strong> Kindle's algorithm only sees digital purchases, frequently recommending books the user has already read in print.</li>
+        </ul>
+      </div>
+
+      <hr class="cs-divider">
+
+      <div class="cs-section reveal">
+        <div class="cs-section-label">Hypotheses Tested</div>
+        <div class="hypothesis-grid">
+          <div class="hypo-card">
+            <div class="label">Hypothesis 1</div>
+            <p>Hybrid readers view physical and digital formats as interchangeable commodities driven purely by price or convenience.</p>
+          </div>
+          <div class="hypo-card">
+            <div class="label">Hypothesis 2</div>
+            <p>Users stop using the app while reading print because the app lacks a mechanism to log physical progress.</p>
+          </div>
+          <div class="hypo-card">
+            <div class="label">Hypothesis 3</div>
+            <p>Irrelevant recommendations — suggesting a book the user already owns in print — degrade trust in the platform.</p>
+          </div>
+        </div>
+      </div>
+
+      <hr class="cs-divider">
+
+      <div class="cs-section reveal">
+        <div class="cs-section-label">Methodology — 5 Phases</div>
+        <h2>A cascading, multi-method research funnel to bypass self-reported bias.</h2>
+        <ul>
+          <li><strong>Phase 1 — Academic & Market Research:</strong> Literature review establishing the "hybrid reader" as a massive market segment.</li>
+          <li><strong>Phase 2 — Competitive Analysis:</strong> Analysed how other media giants (Spotify, Steam) solved the physical-to-digital divide.</li>
+          <li><strong>Phase 3 — Exploratory Interviews (N=15):</strong> 45-minute remote sessions exploring the full book lifecycle — how users select, buy, read, and track physical vs digital books.</li>
+          <li><strong>Phase 4 — 14-Day Diary Study (N=10):</strong> Participants logged every reading session, format switch, and friction point in real time — eliminating recall bias.</li>
+          <li><strong>Phase 5 — Contextual Inquiry (N=5):</strong> 60-minute in-home sessions observing actual physical artefacts — bookshelves, habit trackers, and manual workarounds.</li>
+        </ul>
+        <div class="cs-quote">
+          <p>"The best research you can do is talk to people."</p>
+          <cite>— Sir Terry Pratchett</cite>
+        </div>
+      </div>
+
+      <hr class="cs-divider">
+
+      <div class="cs-section reveal">
+        <div class="cs-section-label">Findings</div>
+        <h2>Three macro-themes emerged from 300+ individual data points.</h2>
+
+        <div class="finding-cards">
+          <div class="finding-card">
+            <h3>❌ Hypothesis 1 REFUTED — The "Trophy Shelf" vs. Consumption</h3>
+            <p>Users treat e-books as utility and physical books as identity "trophies." By only tracking digital purchases, Kindle fails to capture a reader's true identity. Users don't choose format based on price — physical books serve a deep psychological need.</p>
+            <p class="rec">→ Recommendation: "Scan to Digital Shelf" — an in-app ISBN scanner so users can log physical books with an "Owned in Print" badge, creating a unified library.</p>
+          </div>
+          <div class="finding-card">
+            <h3>✅ Hypothesis 2 CONFIRMED — The Tracking Deficit</h3>
+            <p>Kindle engagement drops to zero when users read print. Because offline reading breaks "Days Read" streaks, users are forced to abandon the app for third-party habit trackers like Goodreads and StoryGraph.</p>
+            <p class="rec">→ Recommendation: Allow users to manually log reading sessions for "Owned in Print" books.</p>
+          </div>
+          <div class="finding-card">
+            <h3>✅ Hypothesis 3 CONFIRMED — Algorithmic Blindness</h3>
+            <p>Recommending books users already own in print shatters algorithmic trust and drives users to third-party apps for discovery.</p>
+            <p class="rec">→ Recommendation: Sync physical library data with the store algorithm to avoid redundant recommendations.</p>
+          </div>
+        </div>
+      </div>
+
+      <hr class="cs-divider">
+
+      <div class="cs-section reveal">
+        <div class="cs-section-label">Results</div>
+        <h2>Shifting Kindle from a closed e-reader to an inclusive "Unified Reading Hub."</h2>
+        <div class="result-stats">
+          <div class="stat">
+            <span class="stat-num">80%</span>
+            <span class="stat-desc">Concept validation — users said they'd delete third-party apps and centralise on Kindle</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">↑ DAU</span>
+            <span class="stat-desc">Physical Progress Sync retains daily engagement previously lost to offline reading</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">↓ Churn</span>
+            <span class="stat-desc">"Owned in Print" badges prevent accidental duplicate purchases</span>
+          </div>
+        </div>
+      </div>
+
+      <hr class="cs-divider">
+
+      <div class="cs-section reveal">
+        <div class="cs-section-label">Reflections</div>
+        <p><strong>Designing for the Ecosystem:</strong> By observing users' physical spaces, I learned that the Kindle experience doesn't end when the app closes. True product strategy means designing for the user's entire ecosystem — bridging digital tools and physical bookshelves.</p>
+        <p><strong>Unresolved Edge Cases:</strong> The next research phase must address the Library Dilemma (how to differentiate owned vs. borrowed books) and Household Sharing (multiple users scanning the same physical copy).</p>
+      </div>
+
+      <div class="case-nav">
+        <a href="case-embeddings.html">← Previous: Decision Paralysis</a>
+        <a href="case-hotel.html">Next: Beyond the Label →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="barcelona-section">
+    <img class="barcelona-img"
+      src="https://images.squarespace-cdn.com/content/v1/646b25096908bb4e95982b47/39e1506b-c5be-4fbf-a284-49b92f8b0d5d/Gemini_Generated_Image_ms824lms824lms82.png"
+      alt="Barcelona">
+    <div class="barcelona-overlay">
+      <p class="barcelona-location">📍 Barcelona, Spain</p>
+    </div>
+  </div>
+
+  <footer>
+    <span>© 2025 Masha Kozhyna</span>
+    <span>UX Researcher · Barcelona, Spain</span>
+    <a href="mailto:kozhinamasha@gmail.com">kozhinamasha@gmail.com</a>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver(entries => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    }), { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>

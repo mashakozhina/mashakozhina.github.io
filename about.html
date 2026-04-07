@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me — Masha Kozhyna</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .page-top { padding-top: 70px; }
+
+    .page-banner {
+      width: 100%; height: 360px;
+      object-fit: cover; object-position: center 30%;
+      display: block;
+    }
+
+    .about-inner {
+      max-width: 1180px; margin: 0 auto;
+      padding: 4rem 3rem 6rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 5rem; align-items: start;
+      margin-top: 2.5rem;
+    }
+
+    .about-photo {
+      width: 100%; border-radius: 2px;
+      display: block; position: sticky; top: 90px;
+    }
+
+    .about-lead {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem; font-weight: 400; font-style: italic;
+      line-height: 1.55; color: var(--text); margin-bottom: 1.4rem;
+    }
+
+    .about-body {
+      font-size: 0.93rem; line-height: 1.88;
+      color: var(--text-mid); margin-bottom: 2.2rem;
+    }
+
+    .philosophy-list {
+      list-style: none; display: flex; flex-direction: column; gap: 1.4rem;
+      margin-bottom: 3rem;
+    }
+
+    .philosophy-list li {
+      font-size: 0.93rem; line-height: 1.8;
+      color: var(--text-mid);
+      border-left: 2px solid var(--border);
+      padding-left: 1.1rem;
+    }
+
+    .philosophy-list li strong { color: var(--text); font-weight: 600; }
+
+    .yes-no-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem;
+      padding-top: 2.5rem; border-top: 1px solid var(--border);
+    }
+
+    .yes-no-col h4 {
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--text); margin-bottom: 1rem;
+    }
+
+    .yes-no-col ul { list-style: none; }
+
+    .yes-no-col li {
+      font-size: 0.9rem; color: var(--text-mid);
+      padding: 0.25rem 0; line-height: 1.5;
+    }
+
+    @media (max-width: 860px) {
+      .about-inner { padding: 3rem 1.75rem 5rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .about-photo { max-width: 200px; position: static; }
+      .yes-no-row { grid-template-columns: 1fr; gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <span class="dog" style="left:2%;  top:40%; animation-duration:6s;   animation-delay:0.3s;">🐶</span>
+  <span class="dog" style="left:95%; top:60%; animation-duration:7s;   animation-delay:1.8s; font-size:1.3rem;">🐾</span>
+
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="https://images.squarespace-cdn.com/content/v1/646b25096908bb4e95982b47/ed043d2c-864b-4f8b-9e3c-bb0605d18093/M.png?format=1500w" alt="Masha Kozhyna">
+    </a>
+    <ul class="nav-links">
+      <li><a href="my-work.html">My Work</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="about.html" class="active">About Me</a></li>
+      <li><a href="cv.html">CV</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-top">
+    <img
+      class="page-banner"
+      src="https://images.squarespace-cdn.com/content/v1/646b25096908bb4e95982b47/a2d1c6fb-fffb-4f0e-92e6-aced71a9a239/2535e2799409f3f5c1d113c77f0251e0.jpg"
+      alt="About Masha"
+    >
+
+    <div class="about-inner">
+      <div class="section-label">About Me</div>
+
+      <div class="about-grid">
+        <div>
+          <img
+            class="about-photo"
+            src="https://images.squarespace-cdn.com/content/v1/646b25096908bb4e95982b47/6d5295df-3882-4cec-ad93-8d7d9787ad1f/IMG_5668+2.png"
+            alt="Masha Kozhyna"
+          >
+        </div>
+
+        <div class="reveal">
+          <p class="about-lead">
+            As a curious UX Researcher and lifelong student of human behaviour, I believe technology should be a support, not a burden.
+          </p>
+          <p class="about-body">
+            I'm committed to finding deeper ways to understand what people truly need. Here is the philosophy that drives my research:
+          </p>
+
+          <ul class="philosophy-list">
+            <li>
+              🧠 <strong>Investigating Cognitive Load</strong> — People are already juggling a million things; their tools shouldn't add to the noise. My goal in research is to identify points of mental friction. I advocate for leveraging cognitive and social distribution — finding ways the system and the community can share the mental effort, rather than placing the entire burden on the user.
+            </li>
+            <li>
+              ⚖️ <strong>Championing Ethical Tech</strong> — I firmly believe that good research is inherently ethical. I advocate for design decisions that respect user privacy, autonomy, and well-being. By deeply understanding user needs, I help teams avoid dark patterns and build solutions that are genuinely helpful, accessible, and honest.
+            </li>
+            <li>
+              ✨ <strong>Inspiring Serendipity & Joy</strong> — I don't just want to find out what's broken; I want to discover what brings people joy. By delivering empathetic, nuanced insights, I empower my teams to create moments of serendipity — those delightful interactions that make users feel deeply understood and build lasting product loyalty.
+            </li>
+          </ul>
+
+          <div class="yes-no-row">
+            <div class="yes-no-col">
+              <h4>My Hard Yes</h4>
+              <ul>
+                <li>🎾 A good tennis match</li>
+                <li>📚 Pulitzer Prize-winning literature</li>
+                <li>🍰 Baking (and eating) cakes</li>
+                <li>🏖️ Beach days</li>
+              </ul>
+            </div>
+            <div class="yes-no-col">
+              <h4>My Hard No</h4>
+              <ul>
+                <li>☁️ Grumpy people</li>
+                <li>🧘 Sunrise yoga sessions</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="barcelona-section">
+    <img class="barcelona-img"
+      src="https://images.squarespace-cdn.com/content/v1/646b25096908bb4e95982b47/39e1506b-c5be-4fbf-a284-49b92f8b0d5d/Gemini_Generated_Image_ms824lms824lms82.png"
+      alt="Barcelona">
+    <div class="barcelona-overlay">
+      <p class="barcelona-location">📍 Barcelona, Spain</p>
+    </div>
+  </div>
+
+  <footer>
+    <span>© 2025 Masha Kozhyna</span>
+    <span>UX Researcher · Barcelona, Spain</span>
+    <a href="mailto:kozhinamasha@gmail.com">kozhinamasha@gmail.com</a>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver(entries => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    }), { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>

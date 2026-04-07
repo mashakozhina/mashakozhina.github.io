@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beyond the Label — Masha Kozhyna</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .page-top { padding-top: 70px; }
+    .case-banner { width: 100%; height: 320px; object-fit: cover; object-position: center 40%; display: block; }
+    .case-inner { max-width: 860px; margin: 0 auto; padding: 4rem 3rem 7rem; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); text-decoration: none; margin-bottom: 2.5rem; transition: color 0.2s; }
+    .back-link:hover { color: var(--rose); }
+    .case-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3.4rem); font-weight: 300; line-height: 1.15; letter-spacing: -0.01em; color: var(--text); margin-bottom: 0.5rem; }
+    .case-title em { font-style: italic; color: var(--rose); }
+    .case-meta { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; padding: 1.75rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 3.5rem; }
+    .meta-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--rose); margin-bottom: 0.4rem; }
+    .meta-value { font-size: 0.88rem; line-height: 1.55; color: var(--text-mid); }
+    .overview-box { background: var(--off-white); border-left: 3px solid var(--rose); padding: 1.75rem 2rem; margin-bottom: 3.5rem; border-radius: 0 4px 4px 0; }
+    .overview-box p { font-size: 0.95rem; line-height: 1.85; color: var(--text-mid); margin-bottom: 0.75rem; }
+    .overview-box p:last-child { margin-bottom: 0; }
+    .outcomes { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem; }
+    .outcome-pill { background: var(--rose-pale); color: var(--rose-dark); font-size: 1rem; font-weight: 600; padding: 0.5rem 1.1rem; border-radius: 50px; font-style: italic; font-family: 'Cormorant Garamond', serif; }
+    .cs-section { margin-bottom: 3rem; }
+    .cs-section-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rose); margin-bottom: 0.5rem; }
+    .cs-section h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 600; line-height: 1.25; color: var(--text); margin-bottom: 1.2rem; }
+    .cs-section p { font-size: 0.93rem; line-height: 1.88; color: var(--text-mid); margin-bottom: 1rem; }
+    .cs-section ul, .cs-section ol { padding-left: 1.2rem; margin-bottom: 1rem; }
+    .cs-section ul li, .cs-section ol li { font-size: 0.93rem; line-height: 1.8; color: var(--text-mid); margin-bottom: 0.4rem; }
+    .cs-quote { border-left: 2px solid var(--rose); padding: 0.5rem 0 0.5rem 1.4rem; margin: 1.8rem 0; }
+    .cs-quote p { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.1rem; line-height: 1.65; color: var(--text); margin-bottom: 0.3rem; }
+    .cs-quote cite { font-style: normal; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-light); font-weight: 500; }
+    .cs-divider { border: none; border-top: 1px solid var(--border); margin: 3rem 0; }
+    .finding-cards { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1.2rem; }
+    .finding-card { border: 1px solid var(--border); border-radius: 4px; padding: 1.5rem 1.75rem; border-left: 3px solid var(--rose); }
+    .finding-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; color: var(--text); margin-bottom: 0.5rem; }
+    .finding-card p { font-size: 0.9rem; line-height: 1.78; color: var(--text-mid); margin-bottom: 0.6rem; }
+    .finding-card .rec { font-size: 0.82rem; font-weight: 500; color: var(--rose); font-style: italic; }
+    .result-stats { display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 1.2rem; }
+    .stat { flex: 1; min-width: 160px; padding: 1.4rem; background: var(--off-white); border-radius: 4px; text-align: center; }
+    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 600; color: var(--rose); display: block; margin-bottom: 0.3rem; }
+    .stat-desc { font-size: 0.82rem; color: var(--text-mid); line-height: 1.5; }
+    .cs-img { width: 100%; display: block; border-radius: 4px; margin: 1.5rem 0; }
+    .case-nav { display: flex; justify-content: space-between; align-items: center; padding: 2rem 0; border-top: 1px solid var(--border); margin-top: 1rem; flex-wrap: wrap; gap: 1rem; }
+    .case-nav a { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-mid); text-decoration: none; transition: color 0.2s; }
+    .case-nav a:hover { color: var(--rose); }
+    .privacy-note { font-size: 0.8rem; font-style: italic; color: var(--text-light); padding: 0.75rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
+    .archetype-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 1rem; }
+    .archetype-card { background: var(--off-white); border-radius: 4px; padding: 1.4rem 1.6rem; }
+    .archetype-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 0.5rem; }
+    .archetype-card p { font-size: 0.85rem; line-height: 1.65; color: var(--text-mid); }
+    .testimony { background: var(--rose-pale); border-radius: 4px; padding: 1.5rem 2rem; margin: 1.5rem 0; }
+    .testimony p { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1rem; line-height: 1.7; color: var(--text); }
+    .testimony cite { font-style: normal; font-size: 0.75rem; font-family: 'Jost', sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: var(--rose-dark); font-weight: 600; margin-top: 0.5rem; display: block; }
+    @media (max-width: 700px) {
+      .case-inner { padding: 3rem 1.75rem 5rem; }
+      .case-meta { grid-template-columns: 1fr 1fr; }
+      .result-stats { flex-direction: column; }
+      .archetype-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <span class="dog" style="left:2%;  top:38%; animation-duration:6s;   animation-delay:0.6s;">🐶</span>
+  <span class="dog" style="left:94%; top:58%; animation-duration:7.5s; animation-delay:1.5s; font-size:1.3rem;">🐾</span>
+
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="https://images.squarespace-cdn.com/content/v1/646b25096908bb4e95982b47/ed043d2c-864b-4f8b-9e3c-bb0605d18093/M.png?format=1500w" alt="Masha Kozhyna">
+    </a>
+    <ul class="nav-links">
+      <li><a href="my-work.html" class="active">My Work</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="cv.html">CV</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-top">
+    <img class="case-banner"
+      src="https://images.squarespace-cdn.com/content/v1/646b25096908bb4e95982b47/d9775dbb-f2de-4fbd-a9e1-96635bd300fc/34ba25c1d53acd8f8133afac73b50cae.jpg"
+      alt="">
+
+    <div class="case-inner">
+      <a href="my-work.html" class="back-link">← Back to My Work</a>
+
+      <img class="cs-img"
+        src="https://images.squarespace-cdn.com/content/v1/646b25096908bb4e95982b47/1425cb01-c26f-4bd2-bbc4-b5dab0b35ef0/PawStay+laptop.png"
+        alt="Beyond the Label - PawStay">
+
+      <h1 class="case-title">Beyond the Label: <em>How Mixed-Methods Research Redefined the "Pet-Friendly" Booking Experience</em></h1>
+      <p style="font-size:0.88rem; color:var(--rose); font-weight:500; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:2rem;">PawStay Boutique Hotel</p>
+
+      <div class="case-meta reveal">
+        <div class="meta-item">
+          <div class="meta-label">My Role</div>
+          <div class="meta-value">User Researcher</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Team</div>
+          <div class="meta-value">Product Manager, UX Team Lead</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Methodology</div>
+          <div class="meta-value">Interviews · Usability Testing · Affinity Mapping · Journey Mapping</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Timeframe</div>
+          <div class="meta-value">4 weeks</div>
+        </div>
+      </div>
+
+      <div class="privacy-note">A Privacy Note: To respect my NDA with PawStay, I've simplified and anonymised specific data points and proprietary findings. The process and insights shared here are my own.</div>
+
+      <div class="overview-box reveal">
+        <p>PawStay Boutique Hotel — a premium destination in the Canarias Islands — was experiencing healthy traffic from targeted ad campaigns, but suffering from low booking conversion rates. Despite one-third of traffic filtering for "Pet-Friendly" rooms, <strong>71% of these high-intent users dropped off before confirming a reservation.</strong></p>
+        <p>I conducted a comprehensive mixed-methods study involving exploratory user interviews and evaluative task analysis to uncover the roots of client frustration. My recommendations are projected to:</p>
+        <div class="outcomes">
+          <span class="outcome-pill">+15% booking conversions</span>
+          <span class="outcome-pill">−30% pre-booking support volume</span>
+        </div>
+      </div>
+
+      <div class="cs-quote">
+        <p>"The site claims to be 'pet-friendly' but provides zero details... it feels suspicious, like they'll just charge me more at the door."</p>
+        <cite>— Customer Support Log</cite>
+      </div>
+
+      <hr class="cs-divider">
+
+      <div class="cs-section reveal">
+        <div class="cs-section-label">Business Objectives</div>
+        <ul>
+          <li><strong>Recover lost revenue</strong> by reducing the 71% drop-off rate at the room selection stage.</li>
+          <li><strong>Decrease operational overhead</strong> by cutting pre-booking support volume by 30%.</li>
+          <li><strong>Capture the pet-owner market segment</strong> showing high intent but low conversion.</li>
+          <li><strong>Protect the "Quiet Luxury" brand identity</strong> while expanding to pet owners.</li>
+        </ul>
+      </div>
+
+      <hr class="cs-divider">
+
+      <div class="cs-section reveal">
+        <div class="cs-section-label">Who We Spoke To</div>
+        <h2>Two distinct, high-value traffic segments.</h2>
+        <div class="archetype-grid">
+          <div class="archetype-card">
+            <h4>Archetype 1: The Assurance-Seeking Pet Parent</h4>
+            <p>High-intent traffic actively using "Pet-Friendly" filters but abandoning at the final booking screen. Needs specific pet policies (breed limits, exact fees, pet-free zones) before feeling confident enough to book.</p>
+          </div>
+          <div class="archetype-card">
+            <h4>Archetype 2: The Boundary-Conscious Luxury Guest</h4>
+            <p>Premium travellers booking without pets — the highest Average Order Value — who might be alienated by poor pet management. Needs explicit hygiene guarantees and clear "Pet-Free Zone" information.</p>
+          </div>
+        </div>
+        <p style="margin-top:1.2rem;">I recruited 10 participants fitting these profiles for deep-dive remote moderated sessions.</p>
+      </div>
+
+      <hr class="cs-divider">
+
+      <div class="cs-section reveal">
+        <div class="cs-section-label">Methodology</div>
+        <h2>Mixed-methods covering the full booking funnel.</h2>
+        <p>Before speaking to users, I anchored the study in <strong>Secondary Market Research and a Competitive Analysis</strong> — shifting the organisation's mindset from "we are too expensive" to "we are failing on transparency and certainty."</p>
+        <p>Each of the 10 remote moderated sessions was structured into two distinct phases:</p>
+        <ul>
+          <li><strong>Contextual Interview (60 min):</strong> Deconstructing the "what" and "how" of users' travel mental models — uncovering the psychological "Why" behind booking anxieties.</li>
+          <li><strong>Task-Based Usability Testing (30 min):</strong> Uncovering exactly where in the existing application the user feels frustrated using a think-aloud technique.</li>
+        </ul>
+      </div>
+
+      <hr class="cs-divider">
+
+      <div class="cs-section reveal">
+        <div class="cs-section-label">Findings</div>
+        <h2>"It wasn't the price; it was the Certainty Gap."</h2>
+
+        <div class="finding-cards">
+          <div class="finding-card">
+            <h3>Finding 1 — The Transparency Deficit</h3>
+            <p>Because finding pet policies is non-intuitive, users perceive the lack of explicit data as suspicious — fearing hidden costs at the door. This directly debunked the stakeholder hypothesis that pricing was the primary issue.</p>
+            <p class="rec">→ Recommendation: Shift pet disclosure to the top of the search funnel. Implement a "Pet Profile" selection (count, size, type) during the initial search phase.</p>
+          </div>
+          <div class="finding-card">
+            <h3>Finding 2 — The Neglected Secondary User</h3>
+            <p>Non-pet travellers experience anxiety when hygiene boundaries are left ambiguous. They need explicitly highlighted "Pet-Free Zones" to feel comfortable — a blind spot no competitor was addressing.</p>
+            <p class="rec">→ Recommendation: Introduce "Pet-Free Zone" filters and clear visual indicators within room and public spaces descriptions.</p>
+          </div>
+          <div class="finding-card">
+            <h3>Finding 3 — Environmental Anxiety</h3>
+            <p>High cognitive load from missing pet-specific imagery (flooring type, pet amenities like beds/bowls) blocks confident decision-making and drives booking abandonment.</p>
+            <p class="rec">→ Recommendation: Enhance room galleries with dedicated "Pet Amenity" photography and implement granular "Environmental Filters" (e.g., Hardwood Floors, Ground Floor Access).</p>
+          </div>
+        </div>
+      </div>
+
+      <hr class="cs-divider">
+
+      <div class="cs-section reveal">
+        <div class="cs-section-label">Results</div>
+        <h2>From compliance issue to primary guest strategy.</h2>
+        <p>Research insights shifted the business perspective from treating pets as a compliance issue to treating them as a primary guest entity capable of driving Average Order Value (AOV).</p>
+        <div class="result-stats">
+          <div class="stat">
+            <span class="stat-num">−40%</span>
+            <span class="stat-desc">Reduction in time-on-task via proactive filters</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">+15%</span>
+            <span class="stat-desc">Projected increase in booking conversions</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">−30%</span>
+            <span class="stat-desc">Estimated drop in pre-booking support inquiries</span>
+          </div>
+        </div>
+
+        <div class="testimony">
+          <p>"It shifted how we view our booking funnel. Highlighting the friction for the non-pet traveler was a blind spot we didn't even know we had. This is incredibly strategic work."</p>
+          <cite>— Product Management</cite>
+        </div>
+      </div>
+
+      <hr class="cs-divider">
+
+      <div class="cs-section reveal">
+        <div class="cs-section-label">Reflections</div>
+        <p><strong>Challenge your core users!</strong> Initially, we assumed this project was only about making life easier for dog owners. Expanding the research to include the "Secondary User" (the non-pet luxury guest) changed the product strategy and made the solution twice as strong.</p>
+        <p><strong>Watch what they do, not just what they say.</strong> Conducting contextual interviews was great for understanding the emotional "Booking Anxiety," but the 30-minute usability tasks were where the real breakthroughs happened — giving me the hard quantitative data needed to justify the UI redesign.</p>
+      </div>
+
+      <div class="case-nav">
+        <a href="case-kindle.html">← Previous: Paper vs. Pixels</a>
+        <a href="my-work.html">All Projects →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="barcelona-section">
+    <img class="barcelona-img"
+      src="https://images.squarespace-cdn.com/content/v1/646b25096908bb4e95982b47/39e1506b-c5be-4fbf-a284-49b92f8b0d5d/Gemini_Generated_Image_ms824lms824lms82.png"
+      alt="Barcelona">
+    <div class="barcelona-overlay">
+      <p class="barcelona-location">📍 Barcelona, Spain</p>
+    </div>
+  </div>
+
+  <footer>
+    <span>© 2025 Masha Kozhyna</span>
+    <span>UX Researcher · Barcelona, Spain</span>
+    <a href="mailto:kozhinamasha@gmail.com">kozhinamasha@gmail.com</a>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver(entries => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    }), { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>

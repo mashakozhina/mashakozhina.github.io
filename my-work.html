@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Work — Masha Kozhyna</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .page-top { padding-top: 70px; }
+
+    .page-banner {
+      width: 100%; height: 320px;
+      object-fit: cover; object-position: center 40%;
+      display: block;
+    }
+
+    .page-header {
+      max-width: 1180px; margin: 0 auto;
+      padding: 3.5rem 3rem 0;
+    }
+
+    .page-header p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem; font-style: italic;
+      color: var(--text-mid); line-height: 1.65;
+      max-width: 520px; margin-top: 0.5rem;
+    }
+
+    /* work grid */
+    .work-grid {
+      max-width: 1180px; margin: 0 auto;
+      padding: 3rem 3rem 5.5rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+    }
+
+    .case-card {
+      text-decoration: none; color: inherit; display: block;
+    }
+
+    .case-card:hover .case-title { color: var(--rose); }
+
+    .case-img {
+      width: 100%; aspect-ratio: 4/3; object-fit: cover;
+      display: block; margin-bottom: 1.1rem; border-radius: 2px;
+      transition: opacity 0.22s;
+    }
+
+    .case-card:hover .case-img { opacity: 0.85; }
+
+    .case-category {
+      font-size: 0.68rem; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--rose); margin-bottom: 0.4rem;
+    }
+
+    .case-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem; font-weight: 600; line-height: 1.2;
+      color: var(--text); margin-bottom: 0.4rem;
+      transition: color 0.22s;
+    }
+
+    .case-sub {
+      font-size: 0.875rem; line-height: 1.62;
+      color: var(--text-light); margin-bottom: 0.85rem;
+    }
+
+    .case-link {
+      font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text); text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 860px) {
+      .work-grid { grid-template-columns: 1fr 1fr; padding: 2rem 1.75rem 4rem; }
+      .page-header { padding: 3rem 1.75rem 0; }
+    }
+
+    @media (max-width: 520px) {
+      .work-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <span class="dog" style="left:2%;  top:35%; animation-duration:6s;   animation-delay:0s;">🐶</span>
+  <span class="dog" style="left:95%; top:55%; animation-duration:7.5s; animation-delay:1.2s; font-size:1.3rem;">🐾</span>
+
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="https://images.squarespace-cdn.com/content/v1/646b25096908bb4e95982b47/ed043d2c-864b-4f8b-9e3c-bb0605d18093/M.png?format=1500w" alt="Masha Kozhyna">
+    </a>
+    <ul class="nav-links">
+      <li><a href="my-work.html" class="active">My Work</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="cv.html">CV</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-top">
+    <img
+      class="page-banner"
+      src="https://images.squarespace-cdn.com/content/v1/646b25096908bb4e95982b47/d9775dbb-f2de-4fbd-a9e1-96635bd300fc/34ba25c1d53acd8f8133afac73b50cae.jpg"
+      alt="My Work"
+    >
+    <div class="page-header">
+      <div class="section-label">My Work</div>
+      <p>Here are some projects I've recently completed.</p>
+    </div>
+
+    <div class="work-grid">
+      <a class="case-card reveal" href="case-embeddings.html">
+        <img class="case-img"
+          src="https://images.squarespace-cdn.com/content/v1/646b25096908bb4e95982b47/db741034-c87b-4b5c-a7c9-d963b1b52310/Untitled+design-3.png"
+          alt="Overcoming Decision Paralysis">
+        <div class="case-category">UX Research · AI/ML</div>
+        <div class="case-title">Overcoming Decision Paralysis:</div>
+        <div class="case-sub">UX Research for Native Auto-Embeddings.</div>
+        <span class="case-link">Read More</span>
+      </a>
+
+      <a class="case-card reveal" href="case-kindle.html" style="transition-delay:0.12s">
+        <img class="case-img"
+          src="https://images.squarespace-cdn.com/content/v1/646b25096908bb4e95982b47/a29fa98c-5468-4736-b8fb-fe85c7c89c5a/2.png"
+          alt="Paper vs Pixels">
+        <div class="case-category">Strategic Research · E-Reading</div>
+        <div class="case-title">Paper vs. Pixels:</div>
+        <div class="case-sub">Strategic UX Research Study on Unifying the Fragmented Reading Ecosystem.</div>
+        <span class="case-link">Read More</span>
+      </a>
+
+      <a class="case-card reveal" href="case-hotel.html" style="transition-delay:0.24s">
+        <img class="case-img"
+          src="https://images.squarespace-cdn.com/content/v1/646b25096908bb4e95982b47/9bb68a80-3cd8-4060-b4e6-58e7cce7fddd/5.png"
+          alt="Beyond the Label">
+        <div class="case-category">Mixed Methods · Travel</div>
+        <div class="case-title">Beyond the Label:</div>
+        <div class="case-sub">How Mixed-Methods Research Redefined the "Pet-Friendly" Booking Experience.</div>
+        <span class="case-link">Read More</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="barcelona-section">
+    <img class="barcelona-img"
+      src="https://images.squarespace-cdn.com/content/v1/646b25096908bb4e95982b47/39e1506b-c5be-4fbf-a284-49b92f8b0d5d/Gemini_Generated_Image_ms824lms824lms82.png"
+      alt="Barcelona">
+    <div class="barcelona-overlay">
+      <p class="barcelona-location">📍 Barcelona, Spain</p>
+    </div>
+  </div>
+
+  <footer>
+    <span>© 2025 Masha Kozhyna</span>
+    <span>UX Researcher · Barcelona, Spain</span>
+    <a href="mailto:kozhinamasha@gmail.com">kozhinamasha@gmail.com</a>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver(entries => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    }), { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>

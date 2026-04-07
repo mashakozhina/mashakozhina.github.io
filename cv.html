@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV — Masha Kozhyna</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .page-top { padding-top: 70px; }
+
+    .page-banner {
+      width: 100%; height: 320px;
+      object-fit: cover; object-position: center 40%;
+      display: block;
+    }
+
+    .cv-inner {
+      max-width: 900px; margin: 0 auto;
+      padding: 4rem 3rem 6rem;
+      text-align: center;
+    }
+
+    .cv-inner .section-label { justify-content: center; display: block; }
+
+    .cv-download-row {
+      margin: 2rem 0 3rem;
+    }
+
+    .cv-preview {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      display: block;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 860px) {
+      .cv-inner { padding: 3rem 1.75rem 5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <span class="dog" style="left:3%;  top:50%; animation-duration:6.5s; animation-delay:0.5s;">🐕</span>
+  <span class="dog" style="left:94%; top:40%; animation-duration:7s;   animation-delay:2s; font-size:1.3rem;">🐾</span>
+
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="https://images.squarespace-cdn.com/content/v1/646b25096908bb4e95982b47/ed043d2c-864b-4f8b-9e3c-bb0605d18093/M.png?format=1500w" alt="Masha Kozhyna">
+    </a>
+    <ul class="nav-links">
+      <li><a href="my-work.html">My Work</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="cv.html" class="active">CV</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-top">
+    <img
+      class="page-banner"
+      src="https://images.squarespace-cdn.com/content/v1/646b25096908bb4e95982b47/1685890445050-JVQTGVYQV2NOX3LD1F58/image-asset.jpeg"
+      alt="CV"
+    >
+
+    <div class="cv-inner reveal">
+      <div class="section-label">CV</div>
+      <div class="cv-download-row">
+        <a
+          href="https://masha-researcher.squarespace.com/s/CV_Mariia_Kozhyna_Mixed-Method-Researcher_Visual.pdf"
+          class="btn btn-solid"
+          target="_blank"
+        >
+          Download CV (PDF)
+        </a>
+      </div>
+
+      <img
+        class="cv-preview"
+        src="https://images.squarespace-cdn.com/content/v1/646b25096908bb4e95982b47/f6867f73-03d2-4dfc-a249-ef0271fbc754/Screenshot+2026-04-04+at+15.04.47.png"
+        alt="Masha Kozhyna CV preview"
+      >
+    </div>
+  </div>
+
+  <div class="barcelona-section">
+    <img class="barcelona-img"
+      src="https://images.squarespace-cdn.com/content/v1/646b25096908bb4e95982b47/39e1506b-c5be-4fbf-a284-49b92f8b0d5d/Gemini_Generated_Image_ms824lms824lms82.png"
+      alt="Barcelona">
+    <div class="barcelona-overlay">
+      <p class="barcelona-location">📍 Barcelona, Spain</p>
+    </div>
+  </div>
+
+  <footer>
+    <span>© 2025 Masha Kozhyna</span>
+    <span>UX Researcher · Barcelona, Spain</span>
+    <a href="mailto:kozhinamasha@gmail.com">kozhinamasha@gmail.com</a>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver(entries => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    }), { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>

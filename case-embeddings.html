@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Overcoming Decision Paralysis — Masha Kozhyna</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .page-top { padding-top: 70px; }
+
+    .case-banner {
+      width: 100%; height: 320px;
+      object-fit: cover; object-position: center 40%;
+      display: block;
+    }
+
+    .case-hero-img {
+      width: 100%; max-height: 480px;
+      object-fit: cover; display: block;
+    }
+
+    .case-inner {
+      max-width: 860px; margin: 0 auto;
+      padding: 4rem 3rem 7rem;
+    }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.75rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-light); text-decoration: none;
+      margin-bottom: 2.5rem;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover { color: var(--rose); }
+
+    .case-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      font-weight: 300; line-height: 1.15;
+      letter-spacing: -0.01em; color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .case-title em { font-style: italic; color: var(--rose); }
+
+    .case-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem; font-style: italic; font-weight: 300;
+      color: var(--text-mid); margin-bottom: 2.5rem; line-height: 1.5;
+    }
+
+    /* meta bar */
+    .case-meta {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      padding: 1.75rem 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 3.5rem;
+    }
+
+    .meta-item {}
+    .meta-label {
+      font-size: 0.65rem; font-weight: 600;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--rose); margin-bottom: 0.4rem;
+    }
+
+    .meta-value {
+      font-size: 0.88rem; line-height: 1.55;
+      color: var(--text-mid);
+    }
+
+    /* overview highlight */
+    .overview-box {
+      background: var(--off-white);
+      border-left: 3px solid var(--rose);
+      padding: 1.75rem 2rem;
+      margin-bottom: 3.5rem;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .overview-box p {
+      font-size: 0.95rem; line-height: 1.85; color: var(--text-mid);
+      margin-bottom: 0.75rem;
+    }
+
+    .overview-box p:last-child { margin-bottom: 0; }
+
+    .outcomes {
+      display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 1rem;
+    }
+
+    .outcome-pill {
+      background: var(--rose-pale); color: var(--rose-dark);
+      font-size: 0.88rem; font-weight: 600;
+      padding: 0.5rem 1.1rem; border-radius: 50px;
+      font-style: italic;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+    }
+
+    /* section headings within case */
+    .cs-section {
+      margin-bottom: 3rem;
+    }
+
+    .cs-section-label {
+      font-size: 0.65rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--rose); margin-bottom: 0.5rem;
+    }
+
+    .cs-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem; font-weight: 600; line-height: 1.25;
+      color: var(--text); margin-bottom: 1.2rem;
+    }
+
+    .cs-section p {
+      font-size: 0.93rem; line-height: 1.88;
+      color: var(--text-mid); margin-bottom: 1rem;
+    }
+
+    .cs-section ul, .cs-section ol {
+      padding-left: 1.2rem; margin-bottom: 1rem;
+    }
+
+    .cs-section ul li, .cs-section ol li {
+      font-size: 0.93rem; line-height: 1.8;
+      color: var(--text-mid); margin-bottom: 0.4rem;
+    }
+
+    /* blockquote */
+    .cs-quote {
+      border-left: 2px solid var(--rose);
+      padding: 0.5rem 0 0.5rem 1.4rem;
+      margin: 1.8rem 0;
+    }
+
+    .cs-quote p {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: 1.1rem;
+      line-height: 1.65; color: var(--text); margin-bottom: 0.3rem;
+    }
+
+    .cs-quote cite {
+      font-style: normal; font-size: 0.75rem;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--text-light); font-weight: 500;
+    }
+
+    /* divider */
+    .cs-divider {
+      border: none; border-top: 1px solid var(--border);
+      margin: 3rem 0;
+    }
+
+    /* finding cards */
+    .finding-cards { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1.2rem; }
+
+    .finding-card {
+      border: 1px solid var(--border);
+      border-radius: 4px; padding: 1.5rem 1.75rem;
+      border-left: 3px solid var(--rose);
+    }
+
+    .finding-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem; font-weight: 600;
+      color: var(--text); margin-bottom: 0.5rem;
+    }
+
+    .finding-card p {
+      font-size: 0.9rem; line-height: 1.78; color: var(--text-mid); margin-bottom: 0.6rem;
+    }
+
+    .finding-card .rec {
+      font-size: 0.82rem; font-weight: 500;
+      color: var(--rose); font-style: italic;
+    }
+
+    /* result stats */
+    .result-stats { display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 1.2rem; }
+
+    .stat {
+      flex: 1; min-width: 160px;
+      padding: 1.4rem; background: var(--off-white);
+      border-radius: 4px; text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem; font-weight: 600; color: var(--rose);
+      display: block; margin-bottom: 0.3rem;
+    }
+
+    .stat-desc { font-size: 0.82rem; color: var(--text-mid); line-height: 1.5; }
+
+    /* case image */
+    .cs-img {
+      width: 100%; display: block; border-radius: 4px; margin: 1.5rem 0;
+    }
+
+    /* nav between cases */
+    .case-nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 2rem 0; border-top: 1px solid var(--border);
+      margin-top: 1rem; flex-wrap: wrap; gap: 1rem;
+    }
+
+    .case-nav a {
+      font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-mid); text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .case-nav a:hover { color: var(--rose); }
+
+    /* privacy note */
+    .privacy-note {
+      font-size: 0.8rem; font-style: italic;
+      color: var(--text-light); padding: 0.75rem 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 700px) {
+      .case-inner { padding: 3rem 1.75rem 5rem; }
+      .case-meta { grid-template-columns: 1fr 1fr; }
+      .result-stats { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <span class="dog" style="left:2%;  top:30%; animation-duration:6s;   animation-delay:0.4s;">🐶</span>
+  <span class="dog" style="left:95%; top:60%; animation-duration:7.5s; animation-delay:1.8s; font-size:1.3rem;">🐾</span>
+
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="https://images.squarespace-cdn.com/content/v1/646b25096908bb4e95982b47/ed043d2c-864b-4f8b-9e3c-bb0605d18093/M.png?format=1500w" alt="Masha Kozhyna">
+    </a>
+    <ul class="nav-links">
+      <li><a href="my-work.html" class="active">My Work</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="cv.html">CV</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-top">
+    <img class="case-banner"
+      src="https://images.squarespace-cdn.com/content/v1/646b25096908bb4e95982b47/d9775dbb-f2de-4fbd-a9e1-96635bd300fc/34ba25c1d53acd8f8133afac73b50cae.jpg"
+      alt="">
+
+    <div class="case-inner">
+      <a href="my-work.html" class="back-link">← Back to My Work</a>
+
+      <img class="cs-img"
+        src="https://images.squarespace-cdn.com/content/v1/646b25096908bb4e95982b47/05206f76-223e-49d2-8f99-3206e14b7684/Untitled+design.jpg"
+        alt="Overcoming Decision Paralysis">
+
+      <h1 class="case-title">Overcoming Decision Paralysis: <em>UX Research for Native Auto-Embeddings</em></h1>
+
+      <div class="case-meta reveal">
+        <div class="meta-item">
+          <div class="meta-label">My Role</div>
+          <div class="meta-value">User Researcher</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Team</div>
+          <div class="meta-value">Product Manager, Engineering Lead, UX Designer</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Methodology</div>
+          <div class="meta-value">Choice Modelling Survey · Exploratory Interviews</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Timeframe</div>
+          <div class="meta-value">6 weeks</div>
+        </div>
+      </div>
+
+      <div class="privacy-note">A Privacy Note: To respect my NDA with Cloud Platform, I've simplified and anonymised specific data points and proprietary findings. The process and insights shared here are my own.</div>
+
+      <!-- OVERVIEW -->
+      <div class="cs-section reveal">
+        <div class="cs-section-label">Client</div>
+        <p>The research focused on a Cloud Platform used by developers to build, scale, and manage modern data applications. As Generative AI became a market imperative, the business sought to capture the growing AI-developer market — becoming an all-in-one AI architecture allowing developers to build RAG applications directly within the ecosystem.</p>
+      </div>
+
+      <div class="overview-box reveal">
+        <p>The project was initiated to improve the Cloud Platform's AI Semantic Search onboarding experience, which was experiencing high friction due to the complex, external data pipelines required to generate vector embeddings.</p>
+        <p>I conducted a comprehensive, mixed-methods research study involving <strong>exploratory user interviews</strong> and a <strong>quantitative choice modelling survey</strong> to uncover how AI developers evaluate and adopt embedding models. My recommendations are projected to:</p>
+        <div class="outcomes">
+          <span class="outcome-pill">+25% feature activation</span>
+          <span class="outcome-pill">−40% time-to-first-query for novice AI developers</span>
+        </div>
+      </div>
+
+      <hr class="cs-divider">
+
+      <!-- PROBLEM -->
+      <div class="cs-section reveal">
+        <div class="cs-section-label">The Problem</div>
+        <h2>Developers faced significant friction building AI-first search capabilities.</h2>
+        <p>Building RAG applications typically forced developers to manage complex, external data pipelines just to generate vector embeddings. At the same time, building the auto-embeddings feature wouldn't guarantee adoption if developers couldn't trust the tool.</p>
+        <div class="cs-quote">
+          <p>"Having the embedding model as part of the solution would eliminate the last element of 'round trip' frustration"</p>
+          <cite>— AI Developer</cite>
+        </div>
+      </div>
+
+      <hr class="cs-divider">
+
+      <!-- BUSINESS OBJECTIVES -->
+      <div class="cs-section reveal">
+        <div class="cs-section-label">Business Objectives</div>
+        <ul>
+          <li><strong>De-risk Engineering:</strong> Validate if a native auto-embeddings feature will actually drive adoption before committing expensive development resources.</li>
+          <li><strong>Uncover Onboarding Friction:</strong> Pinpoint exactly where and why developers currently stall with external tools.</li>
+          <li><strong>Define the MVP:</strong> Identify the minimum requirements and trade-offs needed for developers to trust a native solution.</li>
+          <li><strong>Capture Market Share:</strong> Position the platform as a consolidated, all-in-one architecture for AI Semantic Search.</li>
+        </ul>
+      </div>
+
+      <hr class="cs-divider">
+
+      <!-- METHODOLOGY -->
+      <div class="cs-section reveal">
+        <div class="cs-section-label">Methodology</div>
+        <h2>To capture both "what" (scale) and "why" (depth), I designed a two-phase study.</h2>
+        <p><strong>Quantitative Choice Modelling Survey (N=94):</strong> Rather than a standard Likert scale, I deployed a forced-choice modelling survey where users had to evaluate competing factors against one another — mathematically quantifying trade-offs and defining the hierarchy of user needs for the MVP.</p>
+        <p><strong>Remote Moderated Interviews (N=6):</strong> 60-minute deep-dives with technical leaders (CTOs, Solution Architects, Junior AI Devs) to uncover current AI workflows, followed by evaluation of the proposed auto-embeddings workflow.</p>
+        <p>I architected the recruitment strategy around specific stages of the user conversion funnel, from those just exploring AI to those managing production workloads.</p>
+      </div>
+
+      <hr class="cs-divider">
+
+      <!-- FINDINGS -->
+      <div class="cs-section reveal">
+        <div class="cs-section-label">Findings</div>
+        <h2>Three key findings shifted the product strategy.</h2>
+
+        <div class="finding-cards">
+          <div class="finding-card">
+            <h3>Finding 1 — Two Distinct Target User Groups</h3>
+            <p><strong>Strategic Planner (Jerry):</strong> Conducts deep research before deploying, already familiar with different embedding models. Skeptical of "black box" solutions. <strong>Agile Implementer (Tomas):</strong> Lacks deep AI infrastructure confidence but is highly motivated to get started quickly. Experiences immediate decision paralysis with unfamiliar concepts.</p>
+            <p class="rec">→ Recommendation: Tailored onboarding flows for each archetype.</p>
+          </div>
+          <div class="finding-card">
+            <h3>Finding 2 — Knowledge Gaps Drive Behaviour</h3>
+            <p>Many participants found vector embedding concepts difficult to grasp. Because they lacked a methodology to evaluate model quality, developers relied on <em>Cost</em> as the primary decision factor — even when it wasn't the most rational one.</p>
+            <p class="rec">→ Recommendation: Mitigate cost-anxiety by emphasising zero-cost POC onboarding directly in the setup flow.</p>
+          </div>
+          <div class="finding-card">
+            <h3>Finding 3 — Behaviour Shifts Across the Adoption Funnel</h3>
+            <p>Early-stage users embraced auto-embeddings simplicity, but developers further down the funnel showed a strong urge to constantly test and swap different embedding models.</p>
+            <p class="rec">→ Recommendation: Present clear, relevant performance metrics within the UI to help users evaluate beyond simple model-swapping.</p>
+          </div>
+        </div>
+      </div>
+
+      <hr class="cs-divider">
+
+      <!-- RESULTS -->
+      <div class="cs-section reveal">
+        <div class="cs-section-label">Results</div>
+        <h2>From technical integration to guided educational experience.</h2>
+        <p>By shifting the product approach from a purely "technical integration" to a "guided educational experience" adapted to defined behavioural archetypes:</p>
+        <div class="result-stats">
+          <div class="stat">
+            <span class="stat-num">+25%</span>
+            <span class="stat-desc">Projected increase in feature activation</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">−40%</span>
+            <span class="stat-desc">Reduction in time-on-task for novice developers</span>
+          </div>
+        </div>
+      </div>
+
+      <hr class="cs-divider">
+
+      <!-- REFLECTIONS -->
+      <div class="cs-section reveal">
+        <div class="cs-section-label">Reflections</div>
+        <p><strong>Challenge your assumptions about "Experts":</strong> Initially, we assumed developers building AI apps were deeply knowledgeable about machine learning. The research proved that many are "Agile Implementers" simply trying to stitch APIs together — completely changing how we designed educational scaffolding within the product.</p>
+        <p><strong>Cost is a proxy for understanding:</strong> When users don't understand the technical nuances of a feature, they fall back on what they do understand: money. Designing for transparency around cost is just as important as designing for technical functionality.</p>
+      </div>
+
+      <div class="case-nav">
+        <a href="my-work.html">← All Projects</a>
+        <a href="case-kindle.html">Next: Paper vs. Pixels →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="barcelona-section">
+    <img class="barcelona-img"
+      src="https://images.squarespace-cdn.com/content/v1/646b25096908bb4e95982b47/39e1506b-c5be-4fbf-a284-49b92f8b0d5d/Gemini_Generated_Image_ms824lms824lms82.png"
+      alt="Barcelona">
+    <div class="barcelona-overlay">
+      <p class="barcelona-location">📍 Barcelona, Spain</p>
+    </div>
+  </div>
+
+  <footer>
+    <span>© 2025 Masha Kozhyna</span>
+    <span>UX Researcher · Barcelona, Spain</span>
+    <a href="mailto:kozhinamasha@gmail.com">kozhinamasha@gmail.com</a>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver(entries => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    }), { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>

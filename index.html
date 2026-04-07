@@ -4,79 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Masha Kozhyna — UX Researcher</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
   <style>
-    :root {
-      --white:      #FFFFFF;
-      --off-white:  #F9F6F2;
-      --light-bg:   #F3EEE8;
-      --rose:       #C4849A;
-      --rose-dark:  #A86A80;
-      --rose-pale:  #F5E8EE;
-      --text:       #1A1410;
-      --text-mid:   #4A3F38;
-      --text-light: #8A7870;
-      --border:     rgba(26,20,16,0.1);
-    }
-
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Jost', sans-serif;
-      background: var(--white);
-      color: var(--text);
-      overflow-x: hidden;
-      font-weight: 300;
-    }
-
-    /* ─── FLOATING DOGS ─── */
-    .dog {
-      position: fixed;
-      pointer-events: none;
-      z-index: 9;
-      font-size: 1.6rem;
-      animation: dogbob ease-in-out infinite;
-      opacity: 0.55;
-      user-select: none;
-    }
-
-    @keyframes dogbob {
-      0%,100% { transform: translateY(0) rotate(-5deg); }
-      50%      { transform: translateY(-12px) rotate(5deg); }
-    }
-
-    /* ─── NAV ─── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      height: 70px;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 3rem;
-      background: rgba(255,255,255,0.96);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-logo img {
-      height: 38px;
-      display: block;
-    }
-
-    .nav-links {
-      display: flex; gap: 2.5rem; list-style: none;
-    }
-
-    .nav-links a {
-      font-family: 'Jost', sans-serif;
-      font-size: 0.75rem; font-weight: 500;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--text-mid); text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--rose); }
-
-    /* ─── HERO ─── */
+    /* ── HERO: full-screen split ── */
     .hero {
       padding-top: 70px;
       display: grid;
@@ -84,10 +14,7 @@
       min-height: 100vh;
     }
 
-    .hero-photo-col {
-      position: relative; overflow: hidden;
-    }
-
+    .hero-photo-col { position: relative; overflow: hidden; }
     .hero-photo-col img {
       width: 100%; height: 100%;
       object-fit: cover; object-position: center top;
@@ -95,8 +22,7 @@
     }
 
     .hero-text-col {
-      display: flex; flex-direction: column;
-      justify-content: center;
+      display: flex; flex-direction: column; justify-content: center;
       padding: 5rem 5rem 5rem 4rem;
       background: var(--off-white);
     }
@@ -109,52 +35,18 @@
       margin-bottom: 1.5rem;
     }
 
-    .hero-heading em {
-      font-style: italic;
-      color: var(--rose);
-    }
+    .hero-heading em { font-style: italic; color: var(--rose); }
 
     .hero-tagline {
       font-size: 0.95rem; line-height: 1.85;
       color: var(--text-mid); font-weight: 300;
-      max-width: 400px; margin-bottom: 2.5rem;
+      max-width: 400px; margin-bottom: 2rem;
     }
 
-    /* decorative illustration image (2.png) */
-    .hero-deco {
-      width: 120px; margin-bottom: 2rem; opacity: 0.9;
-    }
+    .hero-deco { width: 110px; margin-bottom: 1.8rem; opacity: 0.9; }
 
-    .hero-btns {
-      display: flex; gap: 1rem; flex-wrap: wrap;
-      margin-bottom: 3.5rem;
-    }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
 
-    .btn {
-      font-family: 'Jost', sans-serif;
-      font-size: 0.72rem; font-weight: 600;
-      letter-spacing: 0.15em; text-transform: uppercase;
-      text-decoration: none; padding: 0.8rem 1.8rem;
-      border-radius: 2px; transition: all 0.22s;
-      display: inline-block;
-    }
-
-    .btn-solid {
-      background: var(--text); color: var(--white);
-    }
-
-    .btn-solid:hover { background: var(--rose); }
-
-    .btn-outline {
-      background: transparent; color: var(--text);
-      border: 1px solid var(--text);
-    }
-
-    .btn-outline:hover {
-      background: var(--text); color: var(--white);
-    }
-
-    /* quote inside hero */
     .hero-quote {
       border-left: 2px solid var(--rose);
       padding-left: 1.2rem;
@@ -173,266 +65,33 @@
       text-transform: uppercase; font-weight: 500;
     }
 
-    /* ─── DIVIDER ─── */
-    .divider {
-      border: none; border-top: 1px solid var(--border);
-      margin: 0;
-    }
-
-    /* ─── SECTION COMMON ─── */
-    .section-inner {
-      max-width: 1180px; margin: 0 auto;
-      padding: 5.5rem 3rem;
-    }
-
-    .section-label {
-      font-size: 0.68rem; font-weight: 500;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--rose); margin-bottom: 0.6rem;
-    }
-
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 3.5vw, 3.2rem);
-      font-weight: 300; line-height: 1.15;
-      color: var(--text); margin-bottom: 3rem;
-      letter-spacing: -0.01em;
-    }
-
-    .section-title em { font-style: italic; color: var(--rose); }
-
-    /* ─── ABOUT ─── */
-    #about { background: var(--off-white); }
-
-    /* wide banner image like Squarespace */
-    .about-banner {
-      width: 100%; height: 340px; object-fit: cover;
-      object-position: center 30%;
-      display: block;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 300px 1fr;
-      gap: 5rem; align-items: start;
-      margin-top: 1rem;
-    }
-
-    .about-photo {
-      width: 100%;
-      border-radius: 2px;
-      display: block;
-    }
-
-    .about-content { }
-
-    .about-lead {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.45rem; font-weight: 400; font-style: italic;
-      line-height: 1.55; color: var(--text); margin-bottom: 1.5rem;
-    }
-
-    .about-body {
-      font-size: 0.93rem; line-height: 1.85;
-      color: var(--text-mid); margin-bottom: 2rem;
-    }
-
-    .philosophy-list {
-      list-style: none; display: flex; flex-direction: column; gap: 1.2rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .philosophy-list li {
-      font-size: 0.93rem; line-height: 1.78; color: var(--text-mid);
-      padding-left: 0; border-left: 2px solid var(--border);
-      padding-left: 1rem;
-    }
-
-    .philosophy-list li strong { color: var(--text); font-weight: 600; }
-
-    .yes-no-row {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
-      padding-top: 2rem; border-top: 1px solid var(--border);
-    }
-
-    .yes-no-col h4 {
-      font-family: 'Jost', sans-serif;
-      font-size: 0.72rem; font-weight: 600;
-      letter-spacing: 0.15em; text-transform: uppercase;
-      color: var(--text); margin-bottom: 0.9rem;
-    }
-
-    .yes-no-col ul { list-style: none; }
-
-    .yes-no-col ul li {
-      font-size: 0.88rem; color: var(--text-mid);
-      padding: 0.22rem 0; line-height: 1.5;
-    }
-
-    /* ─── WORK ─── */
-    #work { background: var(--white); }
-
-    .work-banner {
-      width: 100%; height: 260px; object-fit: cover;
-      object-position: center 40%; display: block;
-    }
-
-    .work-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem; margin-top: 0;
-    }
-
-    .case-card {
-      text-decoration: none; color: inherit;
-      display: block;
-      transition: opacity 0.22s;
-    }
-
-    .case-card:hover { opacity: 0.82; }
-
-    .case-card:hover .case-title { color: var(--rose); }
-
-    .case-img {
-      width: 100%; aspect-ratio: 4/3; object-fit: cover;
-      display: block; margin-bottom: 1.1rem;
-      border-radius: 2px;
-    }
-
-    .case-category {
-      font-size: 0.68rem; font-weight: 500;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--rose); margin-bottom: 0.4rem;
-    }
-
-    .case-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.25rem; font-weight: 600; line-height: 1.25;
-      color: var(--text); margin-bottom: 0.4rem;
-      transition: color 0.22s;
-    }
-
-    .case-sub {
-      font-size: 0.85rem; line-height: 1.6; color: var(--text-light);
-      margin-bottom: 0.8rem;
-    }
-
-    .case-link {
-      font-size: 0.72rem; font-weight: 500;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--text); text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-
-    /* ─── BARCELONA FOOTER SECTION ─── */
-    .barcelona-section {
-      position: relative; overflow: hidden; height: 380px;
-    }
-
-    .barcelona-img {
-      width: 100%; height: 100%; object-fit: cover;
-      display: block; filter: brightness(0.75);
-    }
-
-    .barcelona-overlay {
-      position: absolute; inset: 0;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      gap: 1.5rem; text-align: center;
-      padding: 2rem;
-    }
-
-    .barcelona-location {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem; font-weight: 300; font-style: italic;
-      color: white; letter-spacing: 0.05em;
-    }
-
-    .barcelona-msg {
-      font-size: 0.85rem; color: rgba(255,255,255,0.85);
-      max-width: 440px; line-height: 1.75;
-    }
-
-    .btn-white {
-      font-family: 'Jost', sans-serif;
-      font-size: 0.72rem; font-weight: 600;
-      letter-spacing: 0.15em; text-transform: uppercase;
-      text-decoration: none; padding: 0.8rem 2rem;
-      background: white; color: var(--text);
-      border-radius: 2px; transition: all 0.22s;
-      display: inline-block;
-    }
-
-    .btn-white:hover { background: var(--rose); color: white; }
-
-    /* ─── FOOTER ─── */
-    footer {
-      background: var(--text); color: rgba(249,246,242,0.5);
-      padding: 1.5rem 3rem;
-      display: flex; justify-content: space-between; align-items: center;
-      font-size: 0.75rem; letter-spacing: 0.04em;
-    }
-
-    footer a { color: rgba(249,246,242,0.5); text-decoration: none; }
-    footer a:hover { color: var(--rose); }
-
-    /* ─── SCROLL REVEAL ─── */
-    .reveal {
-      opacity: 0; transform: translateY(20px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .reveal.visible { opacity: 1; transform: none; }
-
-    /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
-      nav { padding: 0 1.5rem; }
-      .nav-links { gap: 1.5rem; }
-
       .hero { grid-template-columns: 1fr; }
-      .hero-photo-col { height: 55vw; }
-      .hero-text-col { padding: 3rem 2rem; }
-
-      .section-inner { padding: 4rem 2rem; }
-
-      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .about-photo { max-width: 240px; }
-
-      .work-grid { grid-template-columns: 1fr 1fr; }
-      .yes-no-row { grid-template-columns: 1fr; gap: 1.5rem; }
-
-      footer { flex-direction: column; gap: 0.4rem; text-align: center; padding: 1.5rem; }
-    }
-
-    @media (max-width: 580px) {
-      .nav-links { display: none; }
-      .work-grid { grid-template-columns: 1fr; }
+      .hero-photo-col { height: 60vw; }
+      .hero-text-col { padding: 3rem 1.75rem; }
+      .hero-btns { flex-wrap: wrap; }
     }
   </style>
 </head>
 <body>
 
-  <!-- floating dogs -->
-  <span class="dog" style="left:3%;  top:18%; animation-duration:5.5s; animation-delay:0s;">🐶</span>
-  <span class="dog" style="left:8%;  top:62%; animation-duration:7s;   animation-delay:1.2s; font-size:1.2rem;">🐾</span>
-  <span class="dog" style="left:92%; top:28%; animation-duration:6s;   animation-delay:0.5s;">🐕</span>
-  <span class="dog" style="left:88%; top:72%; animation-duration:8s;   animation-delay:2.5s; font-size:1.2rem;">🐾</span>
-  <span class="dog" style="left:50%; top:88%; animation-duration:6.5s; animation-delay:1.8s; font-size:1.3rem;">🐶</span>
+  <span class="dog" style="left:3%;  top:22%; animation-duration:5.5s; animation-delay:0s;">🐶</span>
+  <span class="dog" style="left:5%;  top:68%; animation-duration:7s;   animation-delay:1.5s; font-size:1.2rem;">🐾</span>
+  <span class="dog" style="left:93%; top:30%; animation-duration:6s;   animation-delay:0.8s;">🐕</span>
+  <span class="dog" style="left:90%; top:75%; animation-duration:8s;   animation-delay:2.8s; font-size:1.2rem;">🐾</span>
 
-  <!-- NAV -->
   <nav>
-    <a href="#" class="nav-logo">
+    <a href="index.html" class="nav-logo">
       <img src="https://images.squarespace-cdn.com/content/v1/646b25096908bb4e95982b47/ed043d2c-864b-4f8b-9e3c-bb0605d18093/M.png?format=1500w" alt="Masha Kozhyna">
     </a>
     <ul class="nav-links">
-      <li><a href="#work">My Work</a></li>
-      <li><a href="#about">About Me</a></li>
-      <li><a href="https://masha-researcher.squarespace.com/blog" target="_blank">Blog</a></li>
-      <li><a href="https://masha-researcher.squarespace.com/resume" target="_blank">CV</a></li>
-      <li><a href="#contact">Connect</a></li>
+      <li><a href="my-work.html">My Work</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="cv.html">CV</a></li>
     </ul>
   </nav>
 
-  <!-- HERO — split: photo left, text right -->
   <section class="hero">
     <div class="hero-photo-col">
       <img
@@ -447,20 +106,15 @@
       <p class="hero-tagline">
         As a UX researcher, I use mixed methods to uncover the 'why' behind user behaviour and help to design ethical technology, turning digital frustration into peace of mind.
       </p>
-
-      <!-- decorative illustration from original -->
       <img
         class="hero-deco"
         src="https://images.squarespace-cdn.com/content/v1/646b25096908bb4e95982b47/03259521-eec0-41ec-ac43-42159a327a32/2.png"
-        alt=""
-        aria-hidden="true"
+        alt="" aria-hidden="true"
       >
-
       <div class="hero-btns">
-        <a href="#work" class="btn btn-solid">My Work</a>
+        <a href="my-work.html" class="btn btn-solid">My Work</a>
         <a href="mailto:kozhinamasha@gmail.com" class="btn btn-outline">Connect</a>
       </div>
-
       <div class="hero-quote">
         <blockquote>"People ignore design that ignores people."</blockquote>
         <cite>— Frank Chimero</cite>
@@ -468,124 +122,17 @@
     </div>
   </section>
 
-  <hr class="divider">
-
-  <!-- ABOUT -->
-  <section id="about">
-    <img
-      class="about-banner"
-      src="https://images.squarespace-cdn.com/content/v1/646b25096908bb4e95982b47/a2d1c6fb-fffb-4f0e-92e6-aced71a9a239/2535e2799409f3f5c1d113c77f0251e0.jpg"
-      alt="About Masha"
-    >
-    <div class="section-inner">
-      <div class="section-label">About Me</div>
-      <div class="about-grid reveal">
-        <div>
-          <img
-            class="about-photo"
-            src="https://images.squarespace-cdn.com/content/v1/646b25096908bb4e95982b47/6d5295df-3882-4cec-ad93-8d7d9787ad1f/IMG_5668+2.png"
-            alt="Masha Kozhyna"
-          >
-        </div>
-        <div class="about-content">
-          <p class="about-lead">
-            As a curious UX Researcher and lifelong student of human behaviour, I believe technology should be a support, not a burden.
-          </p>
-          <p class="about-body">
-            I'm committed to finding deeper ways to understand what people truly need. Here is the philosophy that drives my research:
-          </p>
-          <ul class="philosophy-list">
-            <li>
-              🧠 <strong>Investigating Cognitive Load</strong> — People are already juggling a million things; their tools shouldn't add to the noise. I identify points of mental friction and advocate for cognitive and social distribution, finding ways the system and community can share the mental effort.
-            </li>
-            <li>
-              ⚖️ <strong>Championing Ethical Tech</strong> — Good research is inherently ethical. I advocate for design decisions that respect user privacy, autonomy, and well-being — helping teams avoid dark patterns and build solutions that are genuinely helpful, accessible, and honest.
-            </li>
-            <li>
-              ✨ <strong>Inspiring Serendipity & Joy</strong> — I don't just find out what's broken; I discover what brings people joy. By delivering empathetic, nuanced insights, I empower teams to create moments of serendipity that build lasting product loyalty.
-            </li>
-          </ul>
-          <div class="yes-no-row">
-            <div class="yes-no-col">
-              <h4>My Hard Yes</h4>
-              <ul>
-                <li>🎾 A good tennis match</li>
-                <li>📚 Pulitzer Prize-winning literature</li>
-                <li>🍰 Baking (and eating) cakes</li>
-                <li>🏖️ Beach days</li>
-              </ul>
-            </div>
-            <div class="yes-no-col">
-              <h4>My Hard No</h4>
-              <ul>
-                <li>☁️ Grumpy people</li>
-                <li>🧘 Sunrise yoga sessions</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- WORK -->
-  <section id="work">
-    <img
-      class="work-banner"
-      src="https://images.squarespace-cdn.com/content/v1/646b25096908bb4e95982b47/d9775dbb-f2de-4fbd-a9e1-96635bd300fc/34ba25c1d53acd8f8133afac73b50cae.jpg"
-      alt="My Work"
-    >
-    <div class="section-inner">
-      <div class="section-label">My Work</div>
-      <h2 class="section-title">Here are some projects<br><em>I've recently completed.</em></h2>
-      <div class="work-grid">
-        <a class="case-card reveal" href="https://masha-researcher.squarespace.com/case-study-embeddings" target="_blank">
-          <img class="case-img" src="https://images.squarespace-cdn.com/content/v1/646b25096908bb4e95982b47/db741034-c87b-4b5c-a7c9-d963b1b52310/Untitled+design-3.png" alt="Decision Paralysis">
-          <div class="case-category">UX Research · AI/ML</div>
-          <div class="case-title">Overcoming Decision Paralysis</div>
-          <div class="case-sub">UX Research for Native Auto-Embeddings.</div>
-          <span class="case-link">Read More</span>
-        </a>
-
-        <a class="case-card reveal" href="https://masha-researcher.squarespace.com/case-study-amazon-kindle" target="_blank" style="transition-delay:0.1s">
-          <img class="case-img" src="https://images.squarespace-cdn.com/content/v1/646b25096908bb4e95982b47/a29fa98c-5468-4736-b8fb-fe85c7c89c5a/2.png" alt="Paper vs Pixels">
-          <div class="case-category">Strategic Research</div>
-          <div class="case-title">Paper vs. Pixels</div>
-          <div class="case-sub">Strategic UX Research Study on Unifying the Fragmented Reading Ecosystem.</div>
-          <span class="case-link">Read More</span>
-        </a>
-
-        <a class="case-card reveal" href="https://masha-researcher.squarespace.com/case-study-hotel" target="_blank" style="transition-delay:0.2s">
-          <img class="case-img" src="https://images.squarespace-cdn.com/content/v1/646b25096908bb4e95982b47/9bb68a80-3cd8-4060-b4e6-58e7cce7fddd/5.png" alt="Beyond the Label">
-          <div class="case-category">Mixed Methods</div>
-          <div class="case-title">Beyond the Label</div>
-          <div class="case-sub">How Mixed-Methods Research Redefined the "Pet-Friendly" Booking Experience.</div>
-          <span class="case-link">Read More</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- BARCELONA / CONTACT -->
-  <section id="contact" class="barcelona-section">
+  <div class="barcelona-section">
     <img
       class="barcelona-img"
       src="https://images.squarespace-cdn.com/content/v1/646b25096908bb4e95982b47/39e1506b-c5be-4fbf-a284-49b92f8b0d5d/Gemini_Generated_Image_ms824lms824lms82.png"
-      alt="Barcelona, Spain"
+      alt="Barcelona"
     >
     <div class="barcelona-overlay">
       <p class="barcelona-location">📍 Barcelona, Spain</p>
-      <p class="barcelona-msg">
-        I'm always open to new opportunities and interesting conversations.<br>
-        Let's work together.
-      </p>
-      <a href="mailto:kozhinamasha@gmail.com" class="btn-white">Get in Touch</a>
     </div>
-  </section>
+  </div>
 
-  <!-- FOOTER -->
   <footer>
     <span>© 2025 Masha Kozhyna</span>
     <span>UX Researcher · Barcelona, Spain</span>
@@ -593,12 +140,9 @@
   </footer>
 
   <script>
-    const io = new IntersectionObserver(
-      entries => entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
-      }),
-      { threshold: 0.1 }
-    );
+    const io = new IntersectionObserver(entries => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    }), { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   </script>
 </body>

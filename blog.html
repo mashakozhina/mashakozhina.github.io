@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Masha Kozhyna</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .page-top { padding-top: 70px; }
+
+    .blog-inner {
+      max-width: 720px; margin: 0 auto;
+      padding: 5rem 3rem 7rem;
+      text-align: center;
+    }
+
+    .blog-msg {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem; font-style: italic; font-weight: 300;
+      line-height: 1.7; color: var(--text-mid);
+      margin-bottom: 2.5rem;
+    }
+
+    @media (max-width: 860px) {
+      .blog-inner { padding: 4rem 1.75rem 6rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <span class="dog" style="left:4%;  top:45%; animation-duration:6s;   animation-delay:0.2s;">🐶</span>
+  <span class="dog" style="left:93%; top:55%; animation-duration:7.5s; animation-delay:2.2s; font-size:1.3rem;">🐾</span>
+
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="https://images.squarespace-cdn.com/content/v1/646b25096908bb4e95982b47/ed043d2c-864b-4f8b-9e3c-bb0605d18093/M.png?format=1500w" alt="Masha Kozhyna">
+    </a>
+    <ul class="nav-links">
+      <li><a href="my-work.html">My Work</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="cv.html">CV</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-top">
+    <div class="blog-inner reveal">
+      <div class="section-label">Blog</div>
+      <h1 class="section-title" style="text-align:center; margin-bottom:1.5rem;">
+        Thoughts & <em>reflections</em>
+      </h1>
+      <p class="blog-msg">
+        My blog lives on Squarespace while I'm finishing moving everything over.<br>
+        Click below to read my latest writing.
+      </p>
+      <a href="https://masha-researcher.squarespace.com/blog" target="_blank" class="btn btn-solid">
+        Read the Blog
+      </a>
+    </div>
+  </div>
+
+  <div class="barcelona-section">
+    <img class="barcelona-img"
+      src="https://images.squarespace-cdn.com/content/v1/646b25096908bb4e95982b47/39e1506b-c5be-4fbf-a284-49b92f8b0d5d/Gemini_Generated_Image_ms824lms824lms82.png"
+      alt="Barcelona">
+    <div class="barcelona-overlay">
+      <p class="barcelona-location">📍 Barcelona, Spain</p>
+    </div>
+  </div>
+
+  <footer>
+    <span>© 2025 Masha Kozhyna</span>
+    <span>UX Researcher · Barcelona, Spain</span>
+    <a href="mailto:kozhinamasha@gmail.com">kozhinamasha@gmail.com</a>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver(entries => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    }), { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
